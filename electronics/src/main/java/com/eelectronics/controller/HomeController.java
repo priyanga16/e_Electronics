@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.eelectronics.model.Customer;
-import com.eelectronics.service.CustomerService;
+import com.eelectronics.service.CustomerServiceImpl;
 
 @Controller
 public class HomeController {
 	
 	@Autowired
-   CustomerService customerService;
+   CustomerServiceImpl customerService;
 	
-	@Autowired
+	/*@Autowired
 	public void setCustomerService(CustomerService customerService) {
 		this.customerService = customerService;
-	}
+	}*/
 	@RequestMapping("/")
 	 public String hello() {
 	   return "hello";
