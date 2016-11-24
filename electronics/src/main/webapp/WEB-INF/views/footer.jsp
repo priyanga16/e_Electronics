@@ -10,6 +10,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p>Copyright</p>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-footer">
+      <a class="navbar-brand" href="#">copyright</a>
+    </div>
+
 </body>
 </html>

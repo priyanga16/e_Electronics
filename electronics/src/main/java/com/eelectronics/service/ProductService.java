@@ -6,6 +6,6 @@ import com.eelectronics.model.Product;
 
 public interface ProductService {
 
-public void addproduct(Product p);
+public void addproduct(Product product);
 public List<Product> listProduct();
 }

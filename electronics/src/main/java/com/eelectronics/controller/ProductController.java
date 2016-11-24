@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.eelectronics.model.Product;
 import com.eelectronics.service.ProductServiceImpl;
@@ -21,27 +22,32 @@ public class ProductController {
 	public void setProductService(ProductServiceImpl productService) {
 		this.productService = productService;
 	}
-@RequestMapping(value ="/product", method = RequestMethod.GET)
+@RequestMapping(value="/list", method = RequestMethod.GET)
 	public String listProduct(Model model) {
-		model.addAttribute("product", new Product());
-		model.addAttribute("listProduct", this.productService.listProduct());
+		model.addAttribute("productList",productService.listProduct());
 		return "productList";
 	}
+@RequestMapping(value ="/product",method= RequestMethod.GET)
+  public ModelAndView createProduct()
+  {
+  ModelAndView model = new ModelAndView("addproduct"); 
+  model.addObject("product", new Product());
+  return model;
+  }
 	
-	//For add and update person both
-	@RequestMapping(value="/addproduct", method = RequestMethod.POST)
-	public String addproduct(@ModelAttribute("product") Product p){
+	@RequestMapping(value="/add", method = RequestMethod.GET)
+	public String addproduct(@ModelAttribute("product") Product product){
 		
-		if(p.getProductid() == 0){
-			//new person, add it
-			this.productService.addproduct(p);
+		if(product.getProductid()==0){
+	
+			this.productService.addproduct(product);
 		}
 /*else{
-			//existing person, call update
+			
 			this.productService.updateProduct(p);
-		}
-		*/
-		return "redirect:/product";
+		}*/
+		
+		return "redirect:/list";
 		
 	}
 }

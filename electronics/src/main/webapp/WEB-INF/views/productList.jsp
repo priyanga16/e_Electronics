@@ -2,7 +2,7 @@
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
- 
+ <%@include file="header.jsp" %> 
 <html>
  
 <head>
@@ -13,51 +13,56 @@
 </head>
  
 <body>
+<c:url var="productList" value="/list" ></c:url>
+
     <div class="generic-container">
-        <%@include file="header.jsp" %>   
+          
         <div class="panel panel-default">
               <!-- Default panel contents -->
             <div class="panel-heading"><span class="lead">List of Products</span></div>
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>ID</th>
                         <th>Name</th>
                         <th>Description</th>
                         <th>Price</th>
                         <th>Unit in stock</th>
-                        <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
+                        <sec:authorize access="hasRole('ADMIN') or hasRole('USER')">
                             <th width="100"></th>
                         </sec:authorize>
                         <sec:authorize access="hasRole('ADMIN')">
                             <th width="100"></th>
-                        </sec:authorize>
+                        </sec:authorize> 
                          
                     </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${users}" var="user">
+                <c:forEach items="${productList}" var="product">
                     <tr>
-                        <td>${user.firstName}</td>
-                        <td>${user.lastName}</td>
-                        <td>${user.email}</td>
-                        <td>${user.ssoId}</td>
-                        <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
+                     <td>${product.productid}</td>
+                        <td>${product.productname}</td>
+                        <td>${product.productdescription}</td>
+                        <td>${product.productprice}</td>
+                        <td>${product.unitinstock}</td>
+                        <%-- <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
                             <td><a href="<c:url value='/edit-user-${user.ssoId}' />" class="btn btn-success custom-width">edit</a></td>
                         </sec:authorize>
                         <sec:authorize access="hasRole('ADMIN')">
                             <td><a href="<c:url value='/delete-user-${user.ssoId}' />" class="btn btn-danger custom-width">delete</a></td>
-                        </sec:authorize>
+                        </sec:authorize> --%>
                     </tr>
                 </c:forEach>
-                </tbody>
+                </body>
             </table>
         </div>
-        <sec:authorize access="hasRole('ADMIN')">
+        <%-- <sec:authorize access="hasRole('ADMIN')">
             <div class="well">
                 <a href="<c:url value='/newuser' />">Add New User</a>
             </div>
-        </sec:authorize>
+        </sec:authorize> --%>
     </div>
+    
+     <%@include file="footer.jsp" %> 
 </body>
 </html>

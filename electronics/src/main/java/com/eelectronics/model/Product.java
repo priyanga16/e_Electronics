@@ -1,5 +1,6 @@
 package com.eelectronics.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,16 +10,16 @@ import javax.persistence.Table;
 @Table
 public class Product {
 	@Id
+	@Column
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	 private int productid;
 	private String productname;
 	 private String productdescription;
 	 private int productprice;
 	 private int unitinstock;
-	 
-	
 	private int category;
-	 public int getProductid() {
+	
+	public int getProductid() {
 		return productid;
 	}
 	public void setProductid(int productid) {

@@ -52,7 +52,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-6" style="background-color:yellow;">
+    <div class="col-sm-6" style="background-color:pink;">
       NIIT Limited is an Indian Multinational company that offers learning management and training delivery solutions to corporations, institutions and individuals. It has three main lines of business worldwide: Corporate Learning Group (CLG), Skills and Careers Group (SNC), and School Learning Group (SLG).
 
 In 2006, the IT services business of NIIT was demerged into a separately listed company NIIT Technologies.[4] NIIT Limited now focuses on Corporate Training, Vocational Training for Services Sectors and Education and Training in Schools. 

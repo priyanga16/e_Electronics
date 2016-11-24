@@ -17,12 +17,12 @@ public class ProductServiceImpl implements ProductService{
 	public void setProductDao(ProductDao productDao) {
 		this.productDao = productDao;
 	}
-	public void addproduct(Product p) {
-		this.productDao.addproduct(p);
+	public void addproduct(Product product) {
+		this.productDao.addproduct(product);
 		
 	}
 
 	public List<Product> listProduct() {
-		return this.productDao.listProduct();
+		return productDao.listProduct();
 	}
 	}

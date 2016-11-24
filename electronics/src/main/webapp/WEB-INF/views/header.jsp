@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -17,19 +19,11 @@
     </div>
     <ul class="nav navbar-nav">
       <li><a href="<c:url value="/"/>">Home</a></li>
-        <li><a href="<c:url value="/addproduct"/>">Add new Product</a></li>
-          <li><a href="<c:url value="/product"/>">View product</a></li>
-      <!-- <li><a href="#">Product</a></li>
-       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Product<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Mobile</a></li>
-          <li><a href="#">Camera</a></li>
-          <li><a href="#">Laptop</a></li></ul>-->
-       <!--    <li><a href="register">Register</a></li></ul> -->
+        <li><a href="<c:url value="/product"/>">Add new Product</a></li>
+          <li><a href="<c:url value="/list"/>">View product</a></li>
+   
       <li><a href="#">About</a></li> 
       <li><a href="#">Contact us</a></li> </ul>
-     <!--  <li><a href="#">Login</a></li>
-      <li><a href="#">Register</a></li> -->
       <ul class="nav navbar-nav navbar-right">
       <li><a href="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
