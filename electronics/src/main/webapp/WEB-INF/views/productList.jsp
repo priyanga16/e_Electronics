@@ -7,13 +7,14 @@
  
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Users List</title>
-    <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
-    <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <title>Users List</title>
 </head>
  
 <body>
-<c:url var="productList" value="/list" ></c:url>
+<%-- <c:url var="productList" value="/list" ></c:url> --%>
 
     <div class="generic-container">
           
@@ -28,19 +29,19 @@
                         <th>Description</th>
                         <th>Price</th>
                         <th>Unit in stock</th>
-                        <sec:authorize access="hasRole('ADMIN') or hasRole('USER')">
+                       <%--  <sec:authorize access="hasRole('ADMIN') or hasRole('USER')">
                             <th width="100"></th>
                         </sec:authorize>
                         <sec:authorize access="hasRole('ADMIN')">
                             <th width="100"></th>
-                        </sec:authorize> 
+                        </sec:authorize>  --%>
                          
                     </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${productList}" var="product">
+                <c:forEach  var="product" items="${productList}">
                     <tr>
-                     <td>${product.productid}</td>
+                        <td>${product.productid}</td>
                         <td>${product.productname}</td>
                         <td>${product.productdescription}</td>
                         <td>${product.productprice}</td>
@@ -51,17 +52,23 @@
                         <sec:authorize access="hasRole('ADMIN')">
                             <td><a href="<c:url value='/delete-user-${user.ssoId}' />" class="btn btn-danger custom-width">delete</a></td>
                         </sec:authorize> --%>
-                    </tr>
-                </c:forEach>
+                     <td>
+                 <button type="button" class="btn btn-success">Update</button>
+                 <button type="button" class="btn btn-danger">Delete</button>
+				</td> 
+    </tr>
+     </c:forEach>  
+    </table>
+    </div>
+         </div>
                 </body>
-            </table>
-        </div>
+            
         <%-- <sec:authorize access="hasRole('ADMIN')">
             <div class="well">
                 <a href="<c:url value='/newuser' />">Add New User</a>
             </div>
         </sec:authorize> --%>
-    </div>
+   
     
      <%@include file="footer.jsp" %> 
 </body>

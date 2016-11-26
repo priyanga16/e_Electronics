@@ -1,9 +1,12 @@
 package com.eelectronics.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,9 +21,25 @@ public class Customer {
  private String username;
  private String password;
  private String phone;
- 
-
-	 public int getId() {
+ @OneToOne(cascade=CascadeType.ALL)
+ @JoinColumn(name="billingaddressid")
+private Billingaddress billingaddress;
+	 public Billingaddress getBillingaddress() {
+	return billingaddress;
+}
+public void setBillingaddress(Billingaddress billingaddress) {
+	this.billingaddress = billingaddress;
+}
+@OneToOne(cascade=CascadeType.ALL)
+@JoinColumn(name="shippingaddressid")
+private Shippingaddress shippingaddress;
+	 public Shippingaddress getShippingaddress() {
+	return shippingaddress;
+}
+public void setShippingaddress(Shippingaddress shippingaddress) {
+	this.shippingaddress = shippingaddress;
+}
+	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
@@ -56,7 +75,6 @@ public class Customer {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
+		
 	 
 	}
-

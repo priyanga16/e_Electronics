@@ -23,11 +23,11 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="D:\priyanga\images\maxresdefault.jpg " alt="Samsung" class="img-responsive" width="840" height="230">
+      <img src="D:\priyanga\images\8X-Press-02-580-90.jpg " alt="Samsung" class="img-responsive" width="840" height="230">
     </div>
 
     <div class="item">
-      <img src="D:\priyanga\images\8X-Press-02-580-90.jpg" alt="Redmi 3s" class="img-responsive"width="840" height="230">
+      <img src="D:\priyanga\images\maxresdefault.jpg" alt="Redmi 3s" class="img-responsive"width="840" height="230">
     </div>
 
     <div class="item">

@@ -2,6 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page session="false" %>
+ <%@include file="header.jsp" %> 
 <html>
 <head>
 	<title>product Page</title>
@@ -22,96 +23,53 @@
 <h1>
 	Add a Product
 </h1>
+<%-- <spring:url value="/add?${_csrf.parameterName}=${_csrf.token}" var="Actionurl"/>
+ <form class="form-horizontal" method="post"
+ modelAttribute="product" action="${Actionurl}">
+ <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" path="productid"/> --%>
  <form>
+  <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}"path="productid" />
+ 
     <div class="form-group">
-      <label for="product">Name</label>
-      <input type="text" class="form-control" id="product">
+      <label for="productname">Name</label>
+      <input type="text" path="productname" class="form-control" id="productname">
       </div>
       <div class="form-group">
-      <label for="product">Description</label>
-      <input type="text" class="form-control" id="product">
+      <label for="productdescription">Description</label>
+      <input type="text" path="productdescription" class="form-control" id="productdescription">
       </div>
       <div class="form-group">
-      <label for="product">Price</label>
-      <input type="text" class="form-control" id="product">
+      <label for="productprice">Price</label>
+      <input type="text" path="productprice" class="form-control" id="productprice">
       </div>
       <div class="form-group">
-      <label for="product">Unit in stock</label>
-      <input type="text" class="form-control" id="product">
+      <label for="unitinstock">Unit in stock</label>
+      <input type="text" path="unitinstock" class="form-control" id="unitinstock">
       </div>
       </form>
-      </div>
+      <div class="container">
+ 
+ <h4>Categories</h4>
+  <form>
+    <label class="radio-inline">
+      <input type="radio" name="optradio">Original price
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="optradio">Offer price
+    </label>
+   
+  </form>
+</div>
+      
+      <div class="container">
+      <div class="btn-group">
+      <spring:url value="/list" var="add"/>
+     <button type="button" class="btn btn-primary" onclick="location.href='${add}'">Add</button>
+      <button type="button" class="btn btn-primary">Update</button>
+  </div>
+ </div>   
+</div>
+      
+       <%@include file="footer.jsp" %> 
       </body>
       </html>
-<%-- <<%-- c:url var="addproduct" value="/product" ></c:url>
-
-<form:form action="${addproduct}" commandName="product">
-<table>
-	<c:if test="${!empty product.productname}">
-	<tr>
-		<td>
-			<form:label path="productid">
-				<spring:message text="ID"/>
-			</form:label>
-		</td>
-		<td>
-			<form:input path="productid" readonly="true" size="8"  disabled="true" />
-			<form:hidden path="productid" />
-		</td> 
-	</tr>
-	</c:if>
-	<tr>
-		<td>
-			<form:label path="productname">
-				<spring:message text="Name"/>
-			</form:label>
-		</td>
-		<td>
-			<form:input path="productname" />
-		</td> 
-	</tr>
-	<tr>
-		<td>
-			<form:label path="productdescription">
-				<spring:message text="Description"/>
-			</form:label>
-		</td>
-		<td>
-			<form:input path="productdescription" />
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<form:label path="productprice">
-				<spring:message text="Price"/>
-			</form:label>
-		</td>
-		<td>
-			<form:input path="productprice" />
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<form:label path="unitinstock">
-				<spring:message text="Unit in stock"/>
-			</form:label>
-		</td>
-		<td>
-			<form:input path="unitinstock" />
-		</td>
-	</tr> --%>
-	
-	<%-- <tr>
-		<td colspan="2">
-			<c:if test="${!empty person.name}">
-				<input type="submit"
-					value="<spring:message text="Edit Person"/>" />
-			</c:if>
-			<c:if test="${empty person.name}">
-				<input type="submit"
-					value="<spring:message text="Add Person"/>" />
-			</c:if>
-		</td>
-	</tr>
-</table>	
-</form:form> --%> --%>

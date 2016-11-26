@@ -1,9 +1,11 @@
 package com.eelectronics.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +19,15 @@ public class Billingaddress {
 	 private String city;
 	 private String state;
 	 private String streetname;
-	 public int getBillingaddressid() {
+	 @OneToOne(mappedBy="billingaddress",cascade=CascadeType.ALL)
+	 private Customer customer;
+	 public Customer getCustomer() {
+		return customer;
+	}
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+	public int getBillingaddressid() {
 		return billingaddressid;
 	}
 	public void setBillingaddressid(int billingaddressid) {

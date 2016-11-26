@@ -35,17 +35,17 @@ public class ProductController {
   return model;
   }
 	
-	@RequestMapping(value="/add", method = RequestMethod.GET)
+	@RequestMapping(value="/add", method = RequestMethod.POST)
 	public String addproduct(@ModelAttribute("product") Product product){
 		
 		if(product.getProductid()==0){
 	
 			this.productService.addproduct(product);
 		}
-/*else{
+else{
 			
-			this.productService.updateProduct(p);
-		}*/
+			this.productService.updateProduct(product);
+		}
 		
 		return "redirect:/list";
 		
