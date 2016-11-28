@@ -19,8 +19,8 @@ public class ProductServiceImpl implements ProductService{
 	public void setProductDao(ProductDao productDao) {
 		this.productDao = productDao;
 	}
-	public void addproduct(Product product) {
-		this.productDao.addproduct(product);
+	public void addProduct(Product product) {
+		this.productDao.addProduct(product);
 		
 	}
 

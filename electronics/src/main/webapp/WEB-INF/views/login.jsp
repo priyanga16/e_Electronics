@@ -21,6 +21,13 @@
       <label for="pwd">Password</label>
       <input type="password" class="form-control" id="pwd">
     </div>
+     <div class="container">
+      <div class="btn-group">
+      <spring:url value="/list" var="add"/>
+     <button type="button" class="btn btn-primary" onclick="location.href='${add}'">Login</button>
+    
+  </div>
+ </div>
   </form>
 </div>
 

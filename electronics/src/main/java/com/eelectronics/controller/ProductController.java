@@ -13,6 +13,7 @@ import com.eelectronics.service.ProductServiceImpl;
 
 @Controller
 public class ProductController {
+	
 	@Autowired
 	   ProductServiceImpl productService;
 	public ProductServiceImpl getProductService() {
@@ -22,12 +23,12 @@ public class ProductController {
 	public void setProductService(ProductServiceImpl productService) {
 		this.productService = productService;
 	}
-@RequestMapping(value="/list", method = RequestMethod.GET)
+@RequestMapping(value="/list")
 	public String listProduct(Model model) {
 		model.addAttribute("productList",productService.listProduct());
 		return "productList";
 	}
-@RequestMapping(value ="/product",method= RequestMethod.GET)
+@RequestMapping(value ="/product")
   public ModelAndView createProduct()
   {
   ModelAndView model = new ModelAndView("addproduct"); 
@@ -36,18 +37,19 @@ public class ProductController {
   }
 	
 	@RequestMapping(value="/add", method = RequestMethod.POST)
-	public String addproduct(@ModelAttribute("product") Product product){
+	public String addProduct(@ModelAttribute("product") Product product){
 		
+		System.out.println("test");
 		if(product.getProductid()==0){
 	
-			this.productService.addproduct(product);
+			productService.addProduct(product);
 		}
-else{
+/*else{
 			
-			this.productService.updateProduct(product);
-		}
+			productService.updateProduct(product);
+		}*/
 		
-		return "redirect:/list";
+		return "redirect:/";
 		
 	}
 }

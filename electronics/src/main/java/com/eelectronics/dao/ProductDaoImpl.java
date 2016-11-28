@@ -26,7 +26,7 @@ public ProductDaoImpl(){
 		this.sessionFactory = sessionFactory;
 	}
 
-	public void addproduct(Product product) {
+	public void addProduct(Product product) {
 		Session session = this.sessionFactory.getCurrentSession();
 		session.save(product);
 	}

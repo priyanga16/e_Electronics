@@ -2,6 +2,7 @@ package com.eelectronics.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,7 +22,7 @@ public class Customer {
  private String username;
  private String password;
  private String phone;
- @OneToOne(cascade=CascadeType.ALL)
+ @OneToOne(cascade=CascadeType.ALL,fetch= FetchType.EAGER)
  @JoinColumn(name="billingaddressid")
 private Billingaddress billingaddress;
 	 public Billingaddress getBillingaddress() {
@@ -30,7 +31,7 @@ private Billingaddress billingaddress;
 public void setBillingaddress(Billingaddress billingaddress) {
 	this.billingaddress = billingaddress;
 }
-@OneToOne(cascade=CascadeType.ALL)
+@OneToOne(cascade=CascadeType.ALL,fetch= FetchType.EAGER)
 @JoinColumn(name="shippingaddressid")
 private Shippingaddress shippingaddress;
 	 public Shippingaddress getShippingaddress() {

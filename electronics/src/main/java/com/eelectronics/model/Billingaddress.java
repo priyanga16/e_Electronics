@@ -57,13 +57,7 @@ public class Billingaddress {
 	public void setStreetname(String streetname) {
 		this.streetname = streetname;
 	}
-	public int getZipcode() {
-		return zipcode;
-	}
-	public void setZipcode(int zipcode) {
-		this.zipcode = zipcode;
-	}
-	private int zipcode;
+	
 
 	 
 }

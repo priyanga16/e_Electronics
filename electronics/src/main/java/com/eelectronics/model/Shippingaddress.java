@@ -16,6 +16,7 @@ public class Shippingaddress {
 private int shippingaddressid;
 	
 	private String Apartmentnumber;
+	private String streetname;
 	 private String city;
 	 private String state;
 	 @OneToOne(mappedBy="shippingaddress",cascade=CascadeType.ALL)
@@ -56,6 +57,6 @@ private int shippingaddressid;
 	public void setStreetname(String streetname) {
 		this.streetname = streetname;
 	}
-	private String streetname;
+	
 
 }

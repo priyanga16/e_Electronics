@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@include file="header.jsp" %>
 <html>
 <head>
@@ -10,27 +11,29 @@
 <body>
 <div class="container">
   <h2>Registration</h2>
- 
+  </div>
+ <c:url value="/register" var="url"/>
+  <form:form action="${url}" method="post" commandName="customer">
   
-    <div class="form-group">
+ <div class="form-group">
       <label for="name">Name:</label>
-      <input path="name" class="form-control" id="name" placeholder="Enter name">
+      <form:input path="name" class="form-control"  placeholder="Enter name"/>
     </div>
     <div class="form-group">
       <label for="email">Email:</label>
-      <input path="email" class="form-control" id="email" placeholder="Enter Email">
+      <form:input path="email" class="form-control"  placeholder="Enter Email"/>
     </div>
     <div class="form-group">
       <label for="phone">Phone:</label>
-      <input path="phone" class="form-control" id="phone" placeholder="Enter phone">
+      <form:input path="phone" class="form-control"  placeholder="Enter phone"/>
     </div>
      <div class="form-group">
       <label for="username">Username:</label>
-      <input path="username" class="form-control" id="username" placeholder="Enter username">
+      <form:input path="username" class="form-control"  placeholder="Enter username"/>
     </div> 
     <div class="form-group">
       <label for="password">Password:</label>
-      <input type="password" class="form-control" id="password" placeholder="Enter password">
+      <form:input path="password" type="password" class="form-control" placeholder="Enter password"/>
     </div>
     
      <h2>Billing Address</h2>
@@ -38,45 +41,41 @@
   
     <div class="form-group">
       <label for="apartmentnumber">Apartment number</label>
-      <input path="billingaddress.apartmentnumber" class="form-control" id="apartmentnumber" placeholder="Enter apartmentnumber">
+      <form:input path="billingaddress.Apartmentnumber" class="form-control"  placeholder="Enter apartmentnumber"/>
     </div>
     <div class="form-group">
       <label for="streetname">Streetname:</label>
-      <input path="billingaddress.streetname" class="form-control" id="streetname" placeholder="Enter streetname">
+      <form:input path="billingaddress.streetname" class="form-control" placeholder="Enter streetname"/>
     </div>
     <div class="form-group">
       <label for="city">city:</label>
-      <input path="billingaddress.city" class="form-control" id="city" placeholder="Enter city">
+      <form:input path="billingaddress.city" class="form-control"  placeholder="Enter city"/>
     </div>
      <div class="form-group">
       <label for="state">State:</label>
-      <input path="billingaddress.state" class="form-control" id="state" placeholder="Enter state">
+      <form:input path="billingaddress.state" class="form-control"  placeholder="Enter state"/>
     </div>
     <h2>Shipping Address</h2>
  
   
     <div class="form-group">
       <label for="apartmentnumber">Apartment number</label>
-      <input path="billingaddress.apartmentnumber" class="form-control" id="apartmentnumber" placeholder="Enter apartmentnumber">
+      <form:input path="shippingaddress.Apartmentnumber" class="form-control" placeholder="Enter apartmentnumber"/>
     </div>
     <div class="form-group">
       <label for="streetname">Streetname:</label>
-      <input path="billingaddress.streetname" class="form-control" id="streetname" placeholder="Enter streetname">
+      <form:input path="shippingaddress.streetname" class="form-control" placeholder="Enter streetname"/>
     </div>
     <div class="form-group">
       <label for="city">city:</label>
-      <input path="billingaddress.city" class="form-control" id="city" placeholder="Enter city">
+      <form:input path="shippingaddress.city" class="form-control" placeholder="Enter city"/>
     </div>
      <div class="form-group">
       <label for="state">State:</label>
-      <input path="billingaddress.state" class="form-control" id="state" placeholder="Enter state">
+      <form:input path="shippingaddress.state" class="form-control" placeholder="Enter state"/>
       </div>
-      </div>
-      <div class="container">
-      <div class="btn-group">
-      <button type="button" class="btn btn-primary">Submit</button>
-      </div>
-      </div>
+       <input type="submit" value="submit" class="btn btn-primary">
+  </form:form>
       </body>
       </html>
     

@@ -6,7 +6,7 @@ import com.eelectronics.model.Product;
 
 public interface ProductService {
 
-public void addproduct(Product product);
+public void addProduct(Product product);
 public List<Product> listProduct();
 public void updateProduct(Product product);
 }

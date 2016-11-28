@@ -23,12 +23,10 @@
 <h1>
 	Add a Product
 </h1>
-<%-- <spring:url value="/add?${_csrf.parameterName}=${_csrf.token}" var="Actionurl"/>
+ <spring:url value="/add?${_csrf.parameterName}=${_csrf.token}" var="Actionurl"/>
  <form class="form-horizontal" method="post"
  modelAttribute="product" action="${Actionurl}">
- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" path="productid"/> --%>
- <form>
-  <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}"path="productid" />
+ <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" path="productid"/> 
  
     <div class="form-group">
       <label for="productname">Name</label>
@@ -47,17 +45,18 @@
       <input type="text" path="unitinstock" class="form-control" id="unitinstock">
       </div>
       </form>
+      <form>
       <div class="container">
  
  <h4>Categories</h4>
-  <form>
+  
     <label class="radio-inline">
       <input type="radio" name="optradio">Original price
     </label>
     <label class="radio-inline">
       <input type="radio" name="optradio">Offer price
     </label>
-   
+   </div>
   </form>
 </div>
       
@@ -68,7 +67,7 @@
       <button type="button" class="btn btn-primary">Update</button>
   </div>
  </div>   
-</div>
+
       
        <%@include file="footer.jsp" %> 
       </body>
