@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <html lang="en">
 <head>
   <title>Bootstrap Example</title>
@@ -10,25 +12,38 @@
 </head>
 <body>
 
+
 <div class="container">
+<div id="login-box">
   <h2>LOGIN</h2>
-  <form>
+   <c:if test="${not empty logout}">
+<div class="logout">${logout}</div>
+</c:if>
+  
+  <form name='loginForm' action="<c:url value='/j_spring_security_check'/>" method='POST'>
+  <c:if test="${not empty error}">
+<div class="error">${error}</div>
+</c:if>
+  
     <div class="form-group">
-      <label for="usr">UserName</label>
-      <input type="text" class="form-control" name="username" id="usr">
+      <label for="username">UserName</label>
+      <input type="text" class="form-control" name="username" id="username">
     </div>
     <div class="form-group">
-      <label for="pwd">Password</label>
-      <input type="password" class="form-control" name="password" id="pwd">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="password" id="password">
     </div>
-     <div class="container">
+     <!-- <div class="container">
       <div class="btn-group">
-      <spring:url value="/list" var="add"/>
-     <button type="button" class="btn btn-primary" onclick="location.href='${add}'">Login</button>
+       <spring:url value="/list" var="add"/>  -->
+      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+     <button type="submit" class="btn btn-primary" onclick="location.href='${add}'">Login</button>
     
-  </div>
- </div>
+  <!-- </div>
+ </div> -->
+ 
   </form>
+ </div> 
 </div>
 
 </body>

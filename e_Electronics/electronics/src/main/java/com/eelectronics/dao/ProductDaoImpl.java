@@ -41,18 +41,15 @@ public ProductDaoImpl(){
 		session.update(product);
 	}
 	
-    public Product getProductById (int id) {
+    public Product getProductById (int productid) {
         Session session = sessionFactory.getCurrentSession();
-        Product product = (Product) session.get(Product.class, id);
-        session.flush();
+        Product product = (Product) session.get(Product.class, productid);
         return product;
     }
 
-	public void deleteProduct(Product product){
+	public void deleteProduct(int productid){
 		 Session session = sessionFactory.getCurrentSession();
-	      session.delete(product);
-	      session.flush();
-
+		 session.createQuery("delete from Product where id= "+productid).executeUpdate();
 	}
 }
 

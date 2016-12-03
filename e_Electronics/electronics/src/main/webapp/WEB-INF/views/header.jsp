@@ -12,23 +12,54 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form action="logout" method="post" id="logoutForm">
+	  <input type="hidden"
+		name="${_csrf.parameterName}"
+		value="${_csrf.token}" />
+	</form>
+
+	<script>
+		function formSubmit() {
+			document.getElementById("logoutForm").submit();
+		}
+	</script>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">e_Electronics</a>
-    </div>
-    <ul class="nav navbar-nav">
+     <ul class="nav navbar-nav">
+    <li><a class="navbar-brand" href="#">e_Electronics</a></li>
       <li><a href="<c:url value="/"/>">Home</a></li>
+       <li><a href="#">About</a></li> 
+         <c:if test="${pageContext.request.userPrincipal.name!=null}">
+     
+      <c:if test="${pageContext.request.userPrincipal.name=='admin'}">
         <li><a href="<c:url value="/product"/>">Add new Product</a></li>
-          <li><a href="<c:url value="/list"/>">View product</a></li>
-   
-      <li><a href="#">About</a></li> 
-       <li><a href="<c:url value="/logout"/>">logout</a></li> </ul>
-      <ul class="nav navbar-nav navbar-right">
-      <li><a href="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
-    
+        </c:if>
+        
+          <c:if test="${pageContext.request.userPrincipal.name=='admin'||pageContext.request.userPrincipal.name!='admin'}">
+          <li><a href="<c:url value="/list" />">View product</a></li>
+          </c:if>
+          
+          <li><a>Welcome  ${pageContext.request.userPrincipal.name}</a></li>  
+             <li><a href ="javascript:formSubmit()">logout</a></li> 
+  </c:if>
+ 
+      
+ <%--  <li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li> --%>
+                            <%-- <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
+                            <li><a href="<c:url value="/" />">Cart</a></li>
+                                <li><a href="<c:url value="/customer/cart" />">Cart</a></li>
+                            </c:if> --%>
+                            <%-- <c:if test="${pageContext.request.userPrincipal.name  == 'admin'}"> --%>
+                            
+                               <%--  <li><a href="<c:url value="/admin" />">Admin</a></li>
+                            </c:if> --%>
+                   <%-- <c:if test="${pageContext.request.userPrincipal.name  != null}">
+                      <li><a href='<c:url value="/login" />'>cart</a></li>    --%>
+                        <c:if test="${pageContext.request.userPrincipal.name==null}">
+                        <li><a href="<c:url value="/login" />">Login</a></li>
+                        <li><a href="<c:url value="/register" />">Register</a></li>
+                        </c:if>
+ </ul>   
   </div>
 </nav>
 </body>

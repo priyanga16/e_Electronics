@@ -16,6 +16,8 @@ public class Customer {
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
  private int id;
+/*@Size(min=2,max=10,message="name has to bebetween 2 and 10 characters")
+@N*/
  
  private String name;
  private String email;
@@ -40,6 +42,7 @@ private Shippingaddress shippingaddress;
 public void setShippingaddress(Shippingaddress shippingaddress) {
 	this.shippingaddress = shippingaddress;
 }
+
 	public int getId() {
 		return id;
 	}

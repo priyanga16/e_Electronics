@@ -2,6 +2,7 @@
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
  <%@include file="header.jsp" %> 
 <html>
  
@@ -28,14 +29,13 @@
                         <th>Name</th>
                         <th>Description</th>
                         <th>Price</th>
-                        <th>Unit in stock</th>
-                       <sec:authorize access="hasRole('ADMIN') or hasRole('USER')">
+                       <th>Unit in stock</th>
+                      <%--  <sec:authorize access="hasRole('ADMIN') or hasRole('USER')">
                             <th width="100"></th>
                         </sec:authorize>
                         <sec:authorize access="hasRole('ADMIN')">
                             <th width="100"></th>
-                        </sec:authorize>
-                         
+                        </sec:authorize> --%>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,16 +46,24 @@
                         <td>${product.productdescription}</td>
                         <td>${product.productprice}</td>
                         <td>${product.unitinstock}</td>
-                        <%-- <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')"> --%>
-                            <td><a href="<c:url value='/updateProduct/${product.productid}' />" class="btn btn-success custom-width">edit</a></td>
-                        <%-- </sec:authorize> --%>
-                        <%-- <sec:authorize access="hasRole('ADMIN')"> --%>
+                        <%--  <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
+                            <td><a href="<c:url value='/updateProduct/${product.productid}' />" class="btn btn-success custom-width">update</a></td>
+                        </sec:authorize> 
+                        <sec:authorize access="hasRole('ADMIN')">
                             <td><a href="<c:url value='/deleteProduct/${product.productid}' />" class="btn btn-danger custom-width">delete</a></td>
-                        <%-- </sec:authorize> --%>
-                     <td>
-                 <input type="submit" value="update" class="btn btn-success" >
-                 <input type="button" value="delete" class="btn btn-danger">
-				</td> 
+                        </sec:authorize> 
+                    <!--  <td> --%>
+                   
+                    <c:if test="${pageContext.request.userPrincipal.name =='admin' }">
+                    <td>
+                    <spring:url value="/updateProduct/${product.productid }" var="update"/>
+                    <spring:url value="/deleteProduct/${product.productid }" var="delete"/>
+                    
+                 <button class="btn btn-success"  onclick="location.href='${update}'">update</button>
+                 <button class="btn btn-danger" onclick="location.href='${delete}'">delete</button>
+				
+				</td>
+				</c:if>
     </tr>
      </c:forEach>  
     </table>
@@ -63,12 +71,12 @@
          </div>
                 </body>
             
-     <sec:authorize access="hasRole('ADMIN')">
+   <%--   <sec:authorize access="hasRole('ADMIN')">
             <div class="well">
                 <a href="<c:url value='/newuser' />">Add New User</a>
             </div>
      </sec:authorize>
-   
+    --%>
     
      <%@include file="footer.jsp" %> 
 </body>

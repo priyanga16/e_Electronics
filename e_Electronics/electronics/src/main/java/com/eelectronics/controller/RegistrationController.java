@@ -37,7 +37,7 @@ public class RegistrationController {
 		customer.setShippingaddress(shippingaddress);
 		return new ModelAndView("register","customer",customer);
 	}
- @RequestMapping(value="/register",method=RequestMethod.POST)
+ @RequestMapping(value="/addCustomer",method=RequestMethod.POST)
 	public String registerCustomer(@Valid @ModelAttribute(value="customer") Customer customer,Model model,BindingResult result){
 	if(result.hasErrors())
 		return "register";
