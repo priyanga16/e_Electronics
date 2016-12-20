@@ -14,7 +14,7 @@
 		http://www.springframework.org/schema/context 
 		http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/tx 
-		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">		   
+		http://www.springframework.org/schema/tx/spring-tx.xsd">		   
 <context:component-scan base-package="com.eelectronics"/> 
   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
 <property name="driverClassName" value="org.h2.Driver"></property>  
@@ -79,6 +79,7 @@
                                         users-by-username-query="SELECT username, password, enabled FROM Users WHERE username = ?" />
         </security:authentication-provider>
     </security:authentication-manager>
+
 <tx:annotation-driven/> 
 	 <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />

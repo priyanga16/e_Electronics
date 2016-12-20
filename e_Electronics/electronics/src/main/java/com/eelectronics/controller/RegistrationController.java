@@ -18,7 +18,6 @@ import com.eelectronics.service.CustomerService;
 
 @Controller
 public class RegistrationController {
-	
 	@Autowired
 	private CustomerService customerService;
 	public CustomerService getCustomerService() {

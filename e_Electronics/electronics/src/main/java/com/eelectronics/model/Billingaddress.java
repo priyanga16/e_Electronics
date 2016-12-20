@@ -1,5 +1,7 @@
 package com.eelectronics.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +12,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Billingaddress {
+public class Billingaddress implements Serializable {
+	
+	private static final long serialVersionUID = 5236616770714958973L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	 private int billingaddressid;

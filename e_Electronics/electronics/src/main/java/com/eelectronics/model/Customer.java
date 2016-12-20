@@ -42,7 +42,15 @@ private Shippingaddress shippingaddress;
 public void setShippingaddress(Shippingaddress shippingaddress) {
 	this.shippingaddress = shippingaddress;
 }
-
+@OneToOne(cascade=CascadeType.ALL,fetch= FetchType.EAGER)
+@JoinColumn(name="cartid")
+private Cart cart;
+	public Cart getCart() {
+	return cart;
+}
+public void setCart(Cart cart) {
+	this.cart = cart;
+}
 	public int getId() {
 		return id;
 	}

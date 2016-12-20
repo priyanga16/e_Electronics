@@ -29,6 +29,7 @@
     <li><a class="navbar-brand" href="#">e_Electronics</a></li>
       <li><a href="<c:url value="/"/>">Home</a></li>
        <li><a href="#">About</a></li> 
+       
          <c:if test="${pageContext.request.userPrincipal.name!=null}">
      
       <c:if test="${pageContext.request.userPrincipal.name=='admin'}">
@@ -38,24 +39,16 @@
           <c:if test="${pageContext.request.userPrincipal.name=='admin'||pageContext.request.userPrincipal.name!='admin'}">
           <li><a href="<c:url value="/list" />">View product</a></li>
           </c:if>
+           <c:if test="${pageContext.request.userPrincipal.name  != 'admin'}">
+                      <li><a href='<c:url value="/cart" />'>cart</a></li>
+                          </c:if>
           
           <li><a>Welcome  ${pageContext.request.userPrincipal.name}</a></li>  
              <li><a href ="javascript:formSubmit()">logout</a></li> 
   </c:if>
  
-      
- <%--  <li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li> --%>
-                            <%-- <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
-                            <li><a href="<c:url value="/" />">Cart</a></li>
-                                <li><a href="<c:url value="/customer/cart" />">Cart</a></li>
-                            </c:if> --%>
-                            <%-- <c:if test="${pageContext.request.userPrincipal.name  == 'admin'}"> --%>
-                            
-                               <%--  <li><a href="<c:url value="/admin" />">Admin</a></li>
-                            </c:if> --%>
-                   <%-- <c:if test="${pageContext.request.userPrincipal.name  != null}">
-                      <li><a href='<c:url value="/login" />'>cart</a></li>    --%>
-                        <c:if test="${pageContext.request.userPrincipal.name==null}">
+ 
+       <c:if test="${pageContext.request.userPrincipal.name==null}">
                         <li><a href="<c:url value="/login" />">Login</a></li>
                         <li><a href="<c:url value="/register" />">Register</a></li>
                         </c:if>

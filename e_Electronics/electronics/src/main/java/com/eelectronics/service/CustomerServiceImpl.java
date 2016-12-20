@@ -8,7 +8,6 @@ import com.eelectronics.model.Customer;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
-
 	@Autowired
     private CustomerDao CustomerDao;	
 	

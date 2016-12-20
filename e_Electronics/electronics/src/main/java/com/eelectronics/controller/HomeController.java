@@ -14,7 +14,6 @@ import com.eelectronics.service.CustomerServiceImpl;
 
 @Controller
 public class HomeController {
-	
 	@Autowired
    CustomerServiceImpl customerService;
 	
